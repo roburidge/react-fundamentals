@@ -2,28 +2,25 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 
 var App = React.createClass({
-  getDefaultProps: function() {
+  getInitialState: function(){
     return {
-      text: 'this is a default prop',
-      cat: 0
+      text: 'the state text'
     };
   },
-  propTypes: {
-    text: React.PropTypes.string,
-    cat: React.PropTypes.number.isRequired
+  update: function(e){
+    this.setState({text: e.target.value});
   },
   render: function(){
-    var text = this.props.text;
     return (
       <div>
-        <b>BOLD</b>
-        <h1>{text}</h1>
+        <input type="text" onChange={this.update} />
+        <h1>{this.state.text}</h1>
       </div>
     );
   }
 });
 
 ReactDOM.render(
-  <App cat={5} />,
+  <App text="This is the text prop" />,
   document.getElementById('content')
 );
