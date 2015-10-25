@@ -3,7 +3,12 @@ var ReactDOM = require('react-dom');
 
 var App = React.createClass({
   render: function(){
-    return <h1>Hello World</h1>;
+    return (
+      <div>
+        <b>BOLD</b>
+        <h1>Hello World</h1>
+      </div>
+    );
   }
 });
 
