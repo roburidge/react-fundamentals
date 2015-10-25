@@ -4,30 +4,37 @@ var ReactDOM = require('react-dom');
 var App = React.createClass({
   getInitialState: function(){
     return {
-      text: ''
+      red: 0,
+      green: 0,
+      blue: 0
     };
   },
   update: function(e){
-    this.setState({text: e.target.value});
+    this.setState({
+      red:this.refs.red.refs.inp.getDOMNode().value,
+      green:this.refs.green.refs.inp.getDOMNode().value,
+      blue:this.refs.blue.refs.inp.getDOMNode().value
+    });
   },
   render: function(){
     return (
       <div>
-        <Widget text={this.state.text} update={this.update} />
-        <Widget text={this.state.text} update={this.update} />
-        <Widget text={this.state.text} update={this.update} />
-        <Widget text={this.state.text} update={this.update} />
+        <Slider ref="red" update={this.update} />
+        <label>{this.state.red}</label>
+        <Slider ref="green" update={this.update} />
+        <label>{this.state.green}</label>
+        <Slider ref="blue" update={this.update} />
+        <label>{this.state.blue}</label>
       </div>
     );
   }
 });
 
-var Widget = React.createClass({
+var Slider = React.createClass({
   render: function(){
     return (
       <div>
-        <input type="text" onChange={this.props.update} />
-        <h1>{this.props.text}</h1>
+        <input ref="inp" type="range" min="0" max="255" onChange={this.props.update} />
       </div>
     );
   }
