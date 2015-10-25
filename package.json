@@ -1,0 +1,19 @@
+{
+  "name": "react-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0",
+    "6to5ify": "^4.1.1",
+    "browserify": "^11.2.0",
+    "watchify": "^3.4.0"
+  },
+  "scripts": {
+    "watch": "watchify -t 6to5ify ./src/app.jsx -o ./dist/bundle.js -v"
+  },
+  "author": "",
+  "license": "ISC"
+}
