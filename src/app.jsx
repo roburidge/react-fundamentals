@@ -4,7 +4,7 @@ var ReactDOM = require('react-dom');
 var App = React.createClass({
   getInitialState: function(){
     return {
-      text: 'the state text'
+      text: ''
     };
   },
   update: function(e){
@@ -13,8 +13,21 @@ var App = React.createClass({
   render: function(){
     return (
       <div>
-        <input type="text" onChange={this.update} />
-        <h1>{this.state.text}</h1>
+        <Widget text={this.state.text} update={this.update} />
+        <Widget text={this.state.text} update={this.update} />
+        <Widget text={this.state.text} update={this.update} />
+        <Widget text={this.state.text} update={this.update} />
+      </div>
+    );
+  }
+});
+
+var Widget = React.createClass({
+  render: function(){
+    return (
+      <div>
+        <input type="text" onChange={this.props.update} />
+        <h1>{this.props.text}</h1>
       </div>
     );
   }
